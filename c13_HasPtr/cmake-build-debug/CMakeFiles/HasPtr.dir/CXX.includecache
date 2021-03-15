@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/ketang/Desktop/leetcode-log/c13_HasPtr/HasPtr.cpp
+HasPtr.h
+/Users/ketang/Desktop/leetcode-log/c13_HasPtr/HasPtr.h
+string
+-
+iostream
+-
+vector
+-
+algorithm
+-
+
+/Users/ketang/Desktop/leetcode-log/c13_HasPtr/HasPtr.h
+string
+-
+memory
+-
+utility
+-
+algorithm
+-
+

@@ -1,0 +1,119 @@
+```c++
+default constructor // 全局变量 global的默认构造函数
+calling constructor // 变量p1
+// 变量p2
+value of this->data:0 
+calling copy constructor
+after calling: this->data:5
+
+calling foo_bar
+value of this->data:0 // foo_bar的形参arg
+calling copy constructor
+after calling: this->data:5 // 把实参p1的值拷贝到形参arg
+
+local = arg
+value of this->data:0
+calling copy constructor
+after calling: this->data:5
+
+new Point
+value of this->data:0 // *ptr的初始化
+calling copy constructor
+after calling: this->data:10 //把global的值拷贝到*ptr
+
+*ptr = local //拷贝重载
+copy overload
+
+Point pa[4] 
+value of this->data:0 //数组的第一个元素local
+calling copy constructor
+after calling: this->data:5
+value of this->data:0 //数组的第二个元素*ptr,因为之前已经被global拷贝,因此现在拷贝给数组第二个元素,使数组第二个元素的值为10
+calling copy constructor
+after calling: this->data:10
+
+//这两个默认构造有待研究,应该和数组的内存分配有关系
+default constructor
+default constructor
+//函数返回
+return *ptr
+value of this->data:0
+calling copy constructor
+after calling: this->data:10
+```
+
+
+```c++
+default constructor
+calling constructor
+
+value of this->data:0
+calling copy constructor
+after calling: this->data:5
+
+calling foo_bar(Point)
+value of this->data:0
+calling copy constructor
+after calling: this->data:5
+
+Point local = arg
+value of this->data:0
+calling copy constructor
+after calling: this->data:5
+
+local = arg
+copy overload
+
+foo_bar2(Point&)
+value of this->data:0
+calling copy constructor
+after calling: this->data:5
+
+deconstructor
+
+vector.push_back(Point)
+value of this->data:0
+calling copy constructor
+after calling: this->data:5
+
+new Point(global)
+value of this->data:0
+calling copy constructor
+after calling: this->data:10
+
+*ptr = local
+copy overload
+
+Point pa[4]
+value of this->data:0
+calling copy constructor
+after calling: this->data:5
+value of this->data:0
+calling copy constructor
+after calling: this->data:10
+default constructor
+default constructor
+
+Point* ps = new Point
+default constructor
+
+delete ps
+deconstructor
+
+return *ptr
+value of this->data:0
+calling copy constructor
+after calling: this->data:10
+
+deconstructor
+deconstructor
+deconstructor
+deconstructor
+deconstructor
+deconstructor
+deconstructor
+deconstructor
+deconstructor
+deconstructor
+deconstructor
+```
