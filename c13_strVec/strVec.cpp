@@ -115,12 +115,44 @@ void strVec::resize(size_t n, const string& s=""){
     return ;
 }
 
+inline
+bool strVec::operator==(const strVec& rhs) {
+    if (this->size() != rhs.size())
+        return false;
+    auto l_elem_ptr = this->elements, r_elem_ptr = rhs.elements;
+    while (l_elem_ptr!=this->first_free&&r_elem_ptr!=rhs.first_free) {
+        if (*(l_elem_ptr++)!=*(r_elem_ptr++))
+            return false;
+    }
+    return true;
+}
+
+ostream& operator<<(ostream &os, const strVec& strvec) {
+    auto ptr = strvec.elements;
+    while (ptr < strvec.first_free) {
+        os << *(ptr++);
+    }
+    return os;
+}
 
 
-// int main(){
-//     cout<<"main function in strVec.cpp"<<endl;
-//     auto *p = new strVec;
-//     string s = "saf";
-//     p->push_back(s);
-//     return 0;
-// }
+int main(){
+    cout<<"main function in strVec.cpp"<<endl;
+    auto *p = new strVec;
+    string s = "saf";
+    p->push_back(s);
+    string ss = "fas";
+    p->push_back(ss);
+    auto *q = new strVec;
+    string x = "abd";
+    q->push_back(x);
+
+    //check operator<<
+    cout << *p << endl;
+
+    //check operator==
+    cout << (*q == *p) << endl;
+    
+    
+    return 0;
+}

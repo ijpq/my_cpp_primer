@@ -1,8 +1,9 @@
 #ifndef STRVEC_H
 #define STRVEC_H
-#include<memory>
+#include <memory>
 #include <string>
-#include<initializer_list>
+#include <initializer_list>
+#include <iostream>
 
 using namespace std;
 
@@ -21,6 +22,7 @@ private:
     void chk_n_alloc();
     
 public:
+    friend ostream& operator<<(ostream &os, const strVec& strvec);
     //constructor
     strVec():elements(nullptr),first_free(nullptr),cap(nullptr){}; //default
     strVec(const strVec& strvec);
@@ -58,6 +60,8 @@ public:
     void reverse(size_t);
     void resize(size_t, const string&);
     
+    
+    bool operator==(const strVec& strvec);
 };
 
 
